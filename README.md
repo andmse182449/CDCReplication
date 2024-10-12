@@ -78,7 +78,7 @@ MongoDB UI is accessible on the port 8081.
    curl -X GET 'http://localhost:8083/connectors/source-connector/status'
    ```
 
-   You can check the source-connector.json to see full config for the connector. When opening the file, it would look like below:
+   You can check the file *source-connector.json* in the *connectors* folder to see full config for the connector. When opening the file, it would look like below:
    
    ```json
    {
@@ -111,7 +111,7 @@ MongoDB UI is accessible on the port 8081.
      "createdate":Math.floor(Date.now()/1000)
    })
    ```
-   Now, the message would pop up and could be seen in the *consumer.myCollection.inventory* topic. If you cannot see any topic being created, checking the log for any potential errors.
+   Now, the message would pop up and could be seen in the *consumer.inventory.myCollection* topic. If you cannot see any topic being created, checking the log for any potential errors.
 9. For consuming the messages and replicating data into PostgreSQL, we will now run a Python script to execute such action.
    
    First, accessing into *sink_connector* folder. Now, you have to install all the libraries needed for the Python Consumer.

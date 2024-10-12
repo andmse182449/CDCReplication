@@ -22,10 +22,42 @@ This project implements a **Change Data Capture (CDC)** pipeline that streams da
 2. **Run the Python scripts**: These handle data transformation and sync between MongoDB and PostgreSQL.
 3. **PostgreSQL sink**: Data is stored in PostgreSQL after transformation.
 
-For more detailed instructions, check out the [Installation](#installation) and [Configuration](#configuration) sections below.
+For more detailed instructions, check out the [Getting Started](#gettingstarted) sections below.
 
-## Installation
+## Getting Started
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/andmse182449/CDCReplication.git
+2. Navigate to the Directory: Open a terminal and navigate to the directory containing the Docker Compose file.
+3. Run Docker Compose:
+   ```bash
+   docker-compose up -d
+4. Accessing the Services:
+Confluent Control Center is accessible at http://localhost:9021.
+MongoDB UI is accessible on the port 8081.
+5. Accessing MongoDB execution terminal:
+   ```bash
+   mongosh mongodb://localhost:27017
+   # IF THE NODE IS NOT PRIMARY, CHANGE THE PORT TO 27018 OR 27019 !!!!
+6. Starting "Change Streams" for MongoDB (required Mongo v6.0 or above):
+   ```bash
+   # CREATE NEW DATABASE
+   use inventory
+
+   # CREATE NEW COLLECTION
+   db.createCollection("myCollection");
+   
+   # ENABLE CHANGE STREAMS OPPTION
+   db.runCommand({
+   collMod: "myCollection",
+   changeStreamPreAndPostImages: { enabled: true}
+   })
+   
+   # CHECK IF CHANGE STREAMS IS ENABLED (Optional)
+   db.getCollectionInfos({name: "myCollection"})
+   
+7. Using another terminal for viewing PostgreSQL :
+   ```bash
+   docker exec -it postgres psql -U replicauser -d destinationdb
+ 

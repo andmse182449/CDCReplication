@@ -116,7 +116,7 @@ MongoDB UI is accessible on the port 8081.
    
    First, accessing into *sink_connector* folder. Now, you have to install all the libraries needed for the Python Consumer.
    ```bash
-   pip install -r requirements.txt
+   python -m pip install -r requirements.txt
    ```
 
    Next, find the file *config.json* where all the custom-built configs lie. Each option will be explained below:

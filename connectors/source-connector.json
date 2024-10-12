@@ -1,0 +1,19 @@
+{
+  "name": "source-connector",
+  "config": {
+    "connector.class": "com.mongodb.kafka.connect.MongoSourceConnector",
+    "connection.uri": "mongodb://mongo1:27017/?replicaSet=rs0",
+    "database": "inventory",
+    "collection": "myCollection",
+    "topic.prefix": "consumer",
+    "change.stream.full.document.before.change": "whenAvailable",
+    "change.stream.full.document": "updateLookup",
+    "publish.full.document.only": "false",
+    "value.converter.schemas.enable": "false",
+    "output.format.key": "schema",
+    "output.format.value": "schema",
+    "output.schema.infer.value": "true",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter"
+  }
+}

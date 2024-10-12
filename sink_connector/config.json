@@ -1,0 +1,14 @@
+{
+  "table" : "storage",
+  "connection.uri" : "postgresql://replicauser:replicapass@localhost:5432/destinationdb",
+  "field": {
+    "name": "ordername",
+    "_id": "_id",
+    "price": "amount",
+    "quantity": "numberofproduct",
+    "currency": "currency",
+    "createdate": "createdate"
+  },
+  "topic": "consumer.inventory.inventory",
+  "data.type.mapping" : true
+}

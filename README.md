@@ -22,7 +22,7 @@ This project implements a **Change Data Capture (CDC)** pipeline that streams da
 2. **Run the Python scripts**: These handle data transformation and sync between MongoDB and PostgreSQL.
 3. **PostgreSQL sink**: Data is stored in PostgreSQL after transformation.
 
-For more detailed instructions, check out the [Getting Started](#gettingstarted) sections below.
+For more detailed instructions, check out the [Getting Started](#getting-started) sections below.
 
 ## Getting Started
 
